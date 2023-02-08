@@ -1,4 +1,174 @@
-*** Khái niêm:
 
+  *** Cryptography ***
 
-* Cryptography
+  * Khái niệm: Crytography(mật mã) là kỹ thuật bảo mật thông tin và liên lạc thông qua việc sử dụng mã để chỉ những người thông tin dự định mỡi có thể tìm hiểu nó
+  và xử lý nó. Trong mật mã học, các kỹthuật được sử dụng để bảo vệ thông tin thu được từ các khái niệm toán học và một tập hợp các tính toán dựa trên các quy tắc
+  được gọi là thuật toán để chuyển đổi thông điệp theo cách khiến nó khó giải mã. Các thuật toán này được sử dụng để tạo khóa mật mã, chữ ký số, xác minh để bảo
+  vệ quyền riêng tư của dữ liệu
+
+  * Các tính năng của mật mã:
+      - Bảo mật: Thông tin chỉ có thể được truy cập bởi người dự định và không có người nào khác ngoại trừ người dùng có thể truy cập thông tin đó.
+    Ví dụ: Bod gửi thông tin đã được mã hóa cho Alice thì ngoài Bod và Alice thì không có người nào có thể hiểu được thông tin đó.
+
+      - Tính vẹn toàn: Không thể sửa đổi thông tin trong quá trình lưu trữ hoặc chuyển tiếp giữa người gửi và người nhận mà không phát hiện bất kỳ sự bổ sung nào.
+    Ví dụ: Khi Bod gửi thông tin đi thì không thể thay đổi khác đi
+
+      - Chống thoái thác: Người tạo hoặc người gửi không thể phủ nhân ý định gửi thông tin của minh ở giai đoạn sau.
+    Ví Bod và Alice đã đồng ý trao đổi thông tin cho nhau thì sau này không thể từ chối tham gia được.
+
+      - Xác thực: Danh tính của người gửi và người nhân được xác nhận. Cũng như điểm đến của thông tin cũng được xác định.
+    Ví dụ: Bod và Alice gửi thông tin mã hóa cho nhau thì cả 2 đều có thể xác định lẫn nhau.
+
+  * Các loại mật mã: // Đoạn này em chỉ liệt kê chi tiết em để phần cụ thể của từng loại
+      - Mã hóa đối xứng( Symetric Key)
+      - Mã hóa bất đối xứng( Asymetric Key)
+      - Hàm băm( Hash Function)
+
+   * Ứng dụng của mật mã:
+      - Tiền số
+      - Chữ ký số
+      - Mã hóa đầu cuối,....
+
+      *** Cryptanalysis ***
+    
+    * Khái niệm: Cryptanalysis(Phân tích mật mã) là một trong 2 phần của mật mã, nó giúp chúng ta hiểu rõ hơn về các hệ thống mật mã và cũng giúp chúng ta cải thiện
+    hệ thống bằng cách tìm ra điểm yếu từ đó tìm ra thuật toán để tạo ra khóa an toàn hơn. Ví dụ: Bod cố gắng giải mã một bản mã đểlấy được bản rõ.
+    Từ đó có thể có thể giúp Bod suy ra bản rõ hoặc khóa mã hóa.
+    ==>> Để có thể xác định được điểm yếu của mật mã và phá được mật mã thì những nhà thám mã phảitấn công. Các cuộc tấn công này dựa vào bản chất của thuật 
+    toán hay là dựa trên những thứ mình có thể đoán được liên quan đến nội dung của bản rõ từ đó suy ra khóa.
+    
+    * Các loại tấn công: 
+      - Phân tích khi biết bản rõ( Know-Plaintext Analysis): Kiểu tấn công này là người tấn công đã biết một số cặp văn bản rõ-mã. Từ đó có thể tìm ra khóa bí mật. 
+      Ví dụ: Bod và Alice trao đổi với nhau chẳng may tin nhắn đó bị Eve lấy được và bị lộ mất 1 đoạn bản rõ và bản mã, từ đoạn bản mã và bản rõ. 
+      Từ đó Eve có thể tìm khóa bí mật và giải bản mã.
+    
+      - Phân tích bằng chọn bản rõ(Chosen-Plaintext Analysis): Kiểu tấn công này, người tấn công sẽ chọn các bản rõ ngẫu nhiên và lấy các bản mã tương ứng và 
+      cố gắng tìm ra khóa mã hóa. 
+      Ví dụ:Eve nhặt được bản mã giữa Bod và Alice, theo cách tấn công này thì Eva sẽ chọn 1 bản rõ bất kỳ liên quan đến nội dung đến bản mã
+      ( Trường hợp mà không suy đoán được nội dung thì không nên dùng cách này) từ đó thử các cách mã hóa nếu bản mã nào trùng với bản mã của Eve
+      thì Eve có thể giải mã và thu được khóa bí mật
+    
+      - Phân tích chỉ bằng bản mã( Cipher-Only Analysis: Kiểu tấn công này thì người tấn công so sánh các bản mã mà người tấn công này có được so với bản mã mà
+      hắn có từ đó có thể tìm bản rõ và khóa. 
+      Ví dụ:Eve nhặt được bản mã và hắn đem về so với các bản mã mà hắn có được và trong số đó có một số bản giống(không cần giống hêt) từ đó Eve có thể 
+      biết được bản rõ cũng như khóa mã.
+    
+      - Tấn công người đàn ông ở giữa( Man-In-The-Middle) // Tên hơi buồn cười nhưng lỡ dịch rồi thì em dịch hết Kiểu tấn công này, người tấn công chặn tin nhắn
+      của hai bên liên lạc bằng một kênh được bảo mật.
+      Ví dụ:Bod và Alice đang trao đổi thông tin thì Eve bằng nghiệp vụ của mình lập ra kênh ở giữa ngồi nghe lén hai bên trao đổi thông tin.
+    
+      - Phân tích bản rõ được chọn tương thích( Adaptive Chosen-Plaintext Analysis): Kiểu tấn công này thì tương tự phân tích chọn bản rõ chỉ khác là anh ta có thể
+      chọn từ đống mã hóa đó những dữ liệu mới để phân tích. Ví dụ: Eve đang phân tích bản rõ được chọn thì anh ấy thấy một bản rõ khi mã khóa có một đoạn giống
+      với bản mã khóa. Eve sẽ loại bỏ những bản rõ không có đoạn đấy đi và chỉ lấy những bản rõ có đoạn đấy
+    
+    *** Encode/Decode ***
+    
+    * Encode là chuyển dữ liệu từ một định dạng có sẵn để có thể sử dụng cho các hệ thống khác nhau, sử dụng một phương pháp có sẵn, công khai
+      - Ví dụ: Chữ ‘A’ được biểu diễn trong ASCII là 65
+
+    * Decode cũng giống như encode chỉ là làm ngược lại so với encode
+      - Ví dụ: Chuyển 65 trong ASCII thành chữ ‘A’
+      
+    *** Encrypt/Decrypt ***
+    * Encrypt( Mã hóa) là một phương pháp chuyển đổi dữ liệu đồng thời có thêm tính bí mật. Encrypt sử dụng một thuật toán được gọi là cipher để mã hóa dữ liệu
+    và cũng có để dùng để giải mã
+      - Ví dụ: Với cách mã khóa phaintext sang ciphertext bằng gậy mật mã sau khi ta mã hóa bằng cách cuốn plaintext vào gậy rồi viết thành hàng thì ta được ciphertext
+
+    * Decrypt( Giải mã hóa) là quá trình chuyển dữ liệu bị mã hóa( ciphertext) sang bản rõ(plaintext)
+      - Ví dụ: Với cách mã hóa bằng gậy mật mã thì khi người nhận được ciphertext muốn giải mã chỉ cần cuốn lại bản text đó vào gậy như theo hàng dọc là được plaintext
+    
+    *** Symmetric Cryptography ***
+    
+    * Khái niệm: Symetric cryptography là mật mã khóa đối xứng là loại mật mã trong đó hai bên 
+    liên lạc trao đổi thì thông tin được mã hóa và giải mã cùng dùng chung một khóa được gọi là khóa bí mật chung.
+    
+    * Tính Chất:
+      - Khóa mã hóa và khóa giải mã là như nhau, được chia sẻ và giữ bí mật bởi hai bên
+      - số lượng khóa trong hệ thông n dùng là n(n-1)/2 // vì với mỗi người thì cần n - 1 khóa để liên lạc với người khác và vì người A liên lạc người B
+                                                             người B cũng liên lạc người A nên ta chia 2
+      - Chưa chứng minh được về độ an toàn
+      - các phép toán thường đơn giản nên cho tốc độ cao
+     
+    * Phân loại:
+      - Mã dòng( Stream Cipher)
+      - Mã khối( Block Cipher)
+    * Ví dụ: RC4, RC2, DES, AES 
+      *** Asymmetric Cryptography ***
+      * Khái niệm: Asymmetric Cryptography là mật mã bất đối xứng là loại mật mã trong đó thì hai bên liên lạc không có khóa chung, mỗi bên sẽ có một cặp khóa gồm 
+      một khóa công khai và một khóa bí mật. Thông tin được mã hóa bằng khóa bí mật nào thì phải được giải mã bằng khóa công khai tương ứng và ngược lại.
+        
+    * Tính chất:
+      - Khóa mã hóa và khóa giải mã là hai khóa khác nhau
+      - Mỗi bên có khóa bí mật riêng và khóa công khai tương ứng
+      - Dữ liệu được mã hóa bằng khóa công khai, giải mã bằng khóa bí mật
+      - Mọi người đều có thể mã hóa nhưng chỉ có một người có khóa bí mật mới có thể giải mã
+        kể cả người mã hóa cũng không thể giải mã
+      - Thường tính toán trên số lớn lên cho tốc độ thực 
+        
+    * Ví dụ: RSA, Diifie-Hellman, DSA, ....
+      
+      
+      ===> Sự khác nhau giữa mã đối xứng và bất đối xứng:
+     - Mật mã đối xứng:
+       + Nhược điểm: Cần thỏa thuận khóa bí mất trước, và nếu bị lộ khóa thì lại phải thay nên số lượng khóa lơn
+       + Ưu điểm: Tốc độ cao
+     - Mật mã bất đối xứng:
+       + Nhược điểm: Tốc độ chậm
+       + Ưu điểm: Các bên tham gia không cần thỏa thuận về khóa, số lượng khóa nhỏ
+          
+    *** Hash Function *** 
+      
+    * Khái niệm: là giải thuật nhằm sinh ra các giá trị băm tương ứng với mỗi khối dữ liệu 
+      (có thể là một chuỗi ký tự, một đối tượng trong lập trình hướng đối tượng, v.v...).
+      
+    * Tính chất:
+      - Quan hệ giữa thông điệp và bản tóm lược không tương ứng 1:1
+      - Kháng tiền ảnh: từ giá trị băm thì mình không thể tìm được giá trị bị băm
+      - Kháng tiền ảnh thứ 2: cho trước 1 giá trị không thể tìm 1 giá trị khác mà có cùng hàm
+      băm
+      - Kháng va chạm: không có 2 giá trị bị băm khác nhau mà lại có giá trị băm như nhau
+      
+    * Phân Loại:
+      - Hàm băm không salt: là hàm băm đúng giá trị nhập vào
+      - Hàm băm có salt : là hàm băm giá trị nhập vào cùng với các chuỗi ký tự ngẫu nhiên duy nhất
+      vào giá trị ban đầu
+      
+    * Ví dụ: MD5, SHA1
+      
+    *** Block Cipher ***
+      
+    * Khái niệm: Block Cipher  mật mã khối là một thuật toán xác định hoạt động trên các nhóm bit có độ dài cố định , được gọi là các khối .
+    Mật mã khối là thành phần cơ bản được chỉ định trong thiết kế của nhiều giao thức mật mã và được sử dụng rộng rãi để mã hóa lượng lớn dữ liệu,
+    kể cả trong các giao thức trao đổi dữ liệu. Mật mã khối sử dụng các khối như một phép biến đổi không thay đổi. Mã hóa khối được phát minh nhằm chống phá
+    mã trong trường hợp know-plaintext hay choosen-plaintext, chỉ có thể làm cho P và C không có mối quan hệ toán học.Các mã hóa trong khối thường là phép thay thế 
+    và phép hoán vị
+      
+    * Tính Chất:
+      - Tính khuếch tán: một bit của bản rõ tác động đến tác cả các bit của bản mã, hay nói cách khác, một bit của bản mã chịu tác động của tất cả các bit còn lại
+      trong bản rõ. Việc làm này nhằm giảm tối đa mối liên quan giữa bản rõ và bản mã, ngăn chặn việc suy ra khóa. Tính chất này dựa vào sử dụng phép hoán vị và phép thế
+      - Tính gây lẫn: làm phức tạp hóa mối liên quan giữa bản mã và khóa. Do đó cũng ngăn chặn việc suy ra khóa. Tính chất này sử dụng tính chất hoán vị
+        
+    * Mô hình:
+      - Mô hình mã feitel
+      - Mô hình mạng thay thế hoán vị
+      - Mô hình mã khối lặp
+      - Mô hình Lai-Massey                                                                                       
+                                                                                                   
+    * Ví dụ: DES, RC5, AES
+      
+    *** Stream Cipher ***
+      
+    * Khái niệm: Stream Cipher là mã hóa theo dòng là ta sẽ mã hóa trên từng bit của nó. Là ta sẽ lấytừng bit của plaintext đem xor với từng bit của khóa với
+      điều kiện độ dài khóa phải bằng độ dài plaintext
+      
+    * Phân loại:
+      - Mật mã dòng đồng bộ(Synchronous stream ciphers): Trong một mật mã dòng đồng bộ , một dòng các chữ số giả ngẫu nhiên được tạo ra độc lập với các thông báo bản rõ
+      và bản mã, sau đó được kết hợp với bản rõ (để mã hóa) hoặc bản mã (để giải mã). Ở dạng phổ biến nhất, các chữ số nhị phân được sử dụng ( bits ) và dòng khóa được 
+      kết hợp với bản rõ bằng phép toán hoặc phép toán loại trừ (XOR). Điều này được gọi là mật mã dòng cộng nhị phân .
+        
+      - Mật mã luồng tự đồng bộ hóa(Self-synchronizing stream ciphers): 
+      
+    * Ví dụ: One Time Pad
+      
+    
+    
