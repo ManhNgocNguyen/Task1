@@ -66,20 +66,29 @@
     
     *** Encode/Decode ***
     
-    * Encode là chuyển dữ liệu từ một định dạng có sẵn để có thể sử dụng cho các hệ thống khác nhau, sử dụng một phương pháp có sẵn, công khai
+    * Encode là quá trình mã hóa dữ liệu, chuyển dữ liệu sang định dạng khác, để cho dữ liệu có thể sử dụng được trên hệ thống khác, sử dụng một phương pháp có sẵn,
+    công khai
       - Ví dụ: Chữ ‘A’ được biểu diễn trong ASCII là 65
 
-    * Decode cũng giống như encode chỉ là làm ngược lại so với encode
+    * Decode là quá trình giải dữ liệu bị mã hóa về bản gốc, decode mã hóa lại để có thể sử dụng bản gốc
       - Ví dụ: Chuyển 65 trong ASCII thành chữ ‘A’
       
     *** Encrypt/Decrypt ***
-    * Encrypt( Mã hóa) là một phương pháp chuyển đổi dữ liệu đồng thời có thêm tính bí mật. Encrypt sử dụng một thuật toán được gọi là cipher để mã hóa dữ liệu
-    và cũng có để dùng để giải mã
+    * Encrypt( Mã hóa) là quá trình mã hóa dữ liệu một cách an toàn sao cho chỉ người dùng được ủy quyền biết khóa hoặc mật khẩu mới có thể truy xuất dữ liệu gốc. 
       - Ví dụ: Với cách mã khóa phaintext sang ciphertext bằng gậy mật mã sau khi ta mã hóa bằng cách cuốn plaintext vào gậy rồi viết thành hàng thì ta được ciphertext
 
-    * Decrypt( Giải mã hóa) là quá trình chuyển dữ liệu bị mã hóa( ciphertext) sang bản rõ(plaintext)
+    * Decrypt( Giải mã hóa) là quá trình chuyển dữ liệu bị mã hóa sang bản gốc bằng khóa bí mật
       - Ví dụ: Với cách mã hóa bằng gậy mật mã thì khi người nhận được ciphertext muốn giải mã chỉ cần cuốn lại bản text đó vào gậy như theo hàng dọc là được plaintext
-    
+      
+    * Sự khác nhau của Encode/Decode và Encrypt/ Decrypt
+      - Về định nghĩa: + Encode là quá trình chuyển đổi dữ liệu sang định dạng mà nó có thể bằng một loại hệ thống khác bằng cách sử dụng các thuật toán có sẵn công khai.
+                       + Encrypt là quá trình mã hóa dữ liệu một cách an toàn sao cho chỉ người dùng được ủy quyền biết khóa hoặc mật khẩu mới có thể truy xuất dữ liệu gốc. 
+      - Về mục đích: + Encode/Decode có mục đích chính để bảo vệ tính toàn vẹn cho dữ liệu. 
+                       Ví dụ: Có những hệ thống mà khi nhập không đúng định dạng của nó sẽ bị biến đổi hoặc mất đi giá trị nên ta cần mã giá đó sang đúng giá trị hệ thống hiểu 
+                     + Encrypt/Decypt có mục đích mã hóa dữ liệu để giữ bí mật với người khác
+      - Về giải mã: Cả hai đều truy xuất dữ liệu gốc bằng cách giải mã. Chỉ khác là decode giải mã bằng các thuật toán được sử dụng công khai, còn decrypt giải mã bằng khóa bí mật
+      - Về độ an toàn: Encrypt/Decrypt an toàn hơn so Encode/Decode
+      
     *** Symmetric Cryptography ***
     
     * Khái niệm: Symetric cryptography là mật mã khóa đối xứng là loại mật mã trong đó hai bên 
@@ -98,7 +107,7 @@
     * Ví dụ: RC4, RC2, DES, AES 
       *** Asymmetric Cryptography ***
       * Khái niệm: Asymmetric Cryptography là mật mã bất đối xứng là loại mật mã trong đó thì hai bên liên lạc không có khóa chung, mỗi bên sẽ có một cặp khóa gồm 
-      một khóa công khai và một khóa bí mật. Thông tin được mã hóa bằng khóa bí mật nào thì phải được giải mã bằng khóa công khai tương ứng và ngược lại.
+      một khóa công khai và một khóa bí mật. Thông tin được mã hóa bằng khóa công khai và được giải mã bằng khóa bí mật.
         
     * Tính chất:
       - Khóa mã hóa và khóa giải mã là hai khóa khác nhau
