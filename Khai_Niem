@@ -7,22 +7,25 @@
   vệ quyền riêng tư của dữ liệu
 
   * Các tính năng của mật mã:
-      - Bảo mật: Thông tin chỉ có thể được truy cập bởi người dự định và không có người nào khác ngoại trừ người dùng có thể truy cập thông tin đó.
-    Ví dụ: Bod gửi thông tin đã được mã hóa cho Alice thì ngoài Bod và Alice thì không có người nào có thể hiểu được thông tin đó.
+      - Tính bí mật: + Thông tin chỉ có thể được truy cập bởi người dự định và không có người nào khác ngoại trừ người dùng có thể truy cập thông tin đó.
+                     + Ví dụ: Bod gửi thông tin đã được mã hóa cho Alice thì ngoài Bod và Alice thì không có người nào có thể hiểu được thông tin đó.
+                     + Các dạng đảm bảo tính bảo mật: Mã hóa dữ liệu lưu trữ, mã hóa đầu cuối, mã hóa đường truyền
 
-      - Tính vẹn toàn: Không thể sửa đổi thông tin trong quá trình lưu trữ hoặc chuyển tiếp giữa người gửi và người nhận mà không phát hiện bất kỳ sự bổ sung nào.
-    Ví dụ: Khi Bod gửi thông tin đi thì không thể thay đổi khác đi
+      - Tính vẹn toàn: + Không thể sửa đổi thông tin trong quá trình lưu trữ hoặc chuyển tiếp giữa người gửi và người nhận mà không phát hiện bất kỳ sự bổ sung nào.
+                       + Ví dụ: Khi Bod gửi thông tin đi thì không thể thay đổi khác đi
+                       
+      - Tính chống thoái thác: + Người tạo hoặc người gửi không thể phủ nhân ý định gửi thông tin của minh ở giai đoạn sau.
+                               + Ví Bod và Alice đã đồng ý trao đổi thông tin cho nhau thì sau này không thể từ chối là chưa từng tham gia được.
 
-      - Chống thoái thác: Người tạo hoặc người gửi không thể phủ nhân ý định gửi thông tin của minh ở giai đoạn sau.
-    Ví Bod và Alice đã đồng ý trao đổi thông tin cho nhau thì sau này không thể từ chối tham gia được.
-
-      - Xác thực: Danh tính của người gửi và người nhân được xác nhận. Cũng như điểm đến của thông tin cũng được xác định.
-    Ví dụ: Bod và Alice gửi thông tin mã hóa cho nhau thì cả 2 đều có thể xác định lẫn nhau.
+      - Tính xác thực: + Danh tính của người gửi và người nhân được xác nhận. Cũng như điểm đến của thông tin cũng được xác định.
+                       + Ví dụ: Bod và Alice gửi thông tin mã hóa cho nhau thì cả 2 đều có thể xác định lẫn nhau.
 
   * Các loại mật mã: // Đoạn này em chỉ liệt kê chi tiết em để phần cụ thể của từng loại
       - Mã hóa đối xứng( Symetric Key)
       - Mã hóa bất đối xứng( Asymetric Key)
       - Hàm băm( Hash Function)
+      - Chữ kí số 
+      - Sinh số ngẫu nhiên
 
    * Ứng dụng của mật mã:
       - Tiền số
